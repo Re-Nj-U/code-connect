@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Chips } from './components/Chips'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,19 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
+      </div>
+      <div style={{ marginTop: '40px', padding: '20px', border: '1px solid #ddd', borderRadius: '8px' }}>
+        <h2>Chips Component</h2>
+        <Chips
+          items={[
+            { id: '1', label: 'React' }
+          ]}
+          variant="filled"
+          multiSelect={false}
+          onSelect={(selected) => console.log('Selected:', selected)}
+        />
+
+        
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
