@@ -1,0 +1,120 @@
+/*
+ * Design Tokens
+ * Source: Figma file "Code connect - Test" (ID: 9qaQlSYuimzQjuH2GXNE8b)
+ *
+ * --- Figma VariableID → CSS custom property ---
+ *
+ * Shared (used across components):
+ *   VariableID:1:5   → --color-brand-primary      (#732727)  [button bg, list icon color]
+ *   VariableID:1:6   → --color-brand-secondary     (#2da132)  [button secondary bg]
+ *   VariableID:1:7   → --scale-base                (16px)     [btn padding/radius/gap, list title font-size]
+ *   VariableID:1:8   → --color-white               (#ffffff)  [btn text, list card default bg]
+ *
+ * List Card (node 36:142):
+ *   VariableID:36:53                                    → --color-list-text           (#000000)
+ *   VariableID:38:50                                    → --color-list-card-disabled  (#d9d2d2)
+ *   VariableID:1:7  (value=16px)                         → --spacing-list-card-x       (horizontal padding, shared with --scale-base)
+ *   VariableID:1:7  (value=16px)                         → --radius-list-card          (corner radius, shared with --scale-base)
+ *   VariableID:1:7  (value=16px)                         → --spacing-list-body         (body vertical padding + gap, shared with --scale-base)
+ *   VariableID:783b80…/6740:0  (library, value=4px)     → --spacing-list-content-gap  (content area vertical gap)
+ */
+
+:root {
+  /* ============================================================
+     Primitive tokens — raw values from Figma local variables
+     ============================================================ */
+
+  --color-white: #ffffff;          /* VariableID:1:8 */
+  --scale-base: 16px;              /* VariableID:1:7 */
+
+  /* ============================================================
+     Button tokens  (node 1:10)
+     ============================================================ */
+
+  /* Colors */
+  --color-btn-primary: #732727;    /* VariableID:1:5 */
+  --color-btn-secondary: #2da132;  /* VariableID:1:6 */
+  --color-btn-text: var(--color-white);
+  --color-btn-icon-placeholder: #d9d9d9;
+
+  /* Spacing / Radius — all alias the single Figma variable VariableID:1:7 */
+  --spacing-btn-base: var(--scale-base);
+  --radius-btn: var(--scale-base);
+
+  /* Typography */
+  --font-family-btn: 'Inter', system-ui, sans-serif;
+  --font-size-btn: 12px;
+  --font-weight-btn: 400;
+
+  /* Icon placeholder */
+  --size-btn-icon: 18px;
+
+  /* ============================================================
+     List Card tokens  (node 36:142)
+     ============================================================ */
+
+  /* Colors */
+  --color-list-text: #000000;          /* VariableID:36:53  — title & chevron */
+  --color-list-card-default: var(--color-white); /* VariableID:1:8    — default card bg */
+  --color-list-card-disabled: #d9d2d2; /* VariableID:38:50  — disabled card bg */
+  --color-list-icon: #732727;          /* VariableID:1:5    — left icon color (shared) */
+
+  /* Spacing */
+  --spacing-list-card-x: var(--scale-base); /* horizontal card padding (library var = 16px) */
+  --spacing-list-body: var(--scale-base);   /* body vertical padding + body gap (VariableID:1:7 = 16px) */
+  --spacing-list-content-gap: 4px;          /* content area vertical gap (library var) */
+
+  /* Radius */
+  --radius-list-card: var(--scale-base);  /* VariableID:1:7 = 16px — same variable as padding */
+
+  /* Typography — title */
+  --font-family-list: 'Inter', system-ui, sans-serif;  /* fontFamily: "Inter" */
+  --font-size-list-title: 12px;                        /* fontSize: 12 */
+  --font-weight-list-title: 400;
+  --line-height-list-title: normal;                    /* intrinsic / lineHeightUnit: INTRINSIC_% */
+  --letter-spacing-list-title: 0;
+
+  /* Icon */
+  --size-list-icon: 18px;
+  --font-size-list-icon: 20px;
+
+  /* ============================================================
+     Card tokens  (node 31:247 — COMPONENT_SET "Card")
+     ============================================================ */
+
+  /* Colors */
+  --color-card-icon: #1e1e1e;            /* VariableID:8686058b…/5613:412 — icon stroke */
+  --color-card-image-placeholder: #e3e3e3; /* VariableID:c39ca5ae…/4317:846 — image bg */
+  --color-card-stroke: var(--color-list-card-disabled); /* VariableID:38:50 — card border (shared alias) */
+  --color-card-bg: var(--color-white);   /* VariableID:0a801a1a…/5613:370 — Stroke variant bg (shared alias) */
+
+  /* Spacing */
+  --spacing-card: var(--scale-base);          /* VariableID:1:7 = 16px — card padding, body gap */
+  --spacing-card-text-gap: 8px;               /* VariableID:1d726f3f…/564:255 — heading/body gap */
+
+  /* Radius */
+  --radius-card: var(--scale-base);           /* VariableID:1:7 = 16px */
+
+  /* Sizes */
+  --size-card-icon-container: 32px;           /* Info frame fixed size */
+  --size-card-image: 160px;                   /* Image frame fixed size */
+
+  /* Typography — heading (Title node: Inter 24px 600, lh=28.8px, ls=-0.48px) */
+  --font-family-card: 'Inter', system-ui, sans-serif;
+  --font-size-card-heading: 24px;
+  --font-weight-card-heading: 600;
+  --line-height-card-heading: 1.2;            /* 28.8 / 24 */
+  --letter-spacing-card-heading: -0.02em;     /* -0.48 / 24 */
+
+  /* Typography — body text (fontSize bound to VariableID:1:7 = 16px, lh=22.4px) */
+  --font-size-card-body: var(--scale-base);   /* VariableID:1:7 */
+  --font-weight-card-body: 400;
+  --line-height-card-body: 1.4;               /* 22.4 / 16 */
+
+  /* ============================================================
+     Screen / App-level tokens  (node 46:68 — "Test app" FRAME)
+     ============================================================ */
+
+  /* VariableID:46:126 = 32px — screen top/bottom padding + section gap */
+  --spacing-screen: 32px;
+}

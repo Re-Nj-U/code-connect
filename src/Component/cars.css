@@ -1,0 +1,129 @@
+/* ==========================================================
+   Card  (Figma node 31:247 — COMPONENT_SET "Card")
+   All values reference centralized design tokens only.
+
+   Variant matrix:
+     assetType : icon | image
+     variant   : default (transparent bg) | stroke (white bg)
+     direction : horizontal | vertical
+   ========================================================== */
+
+/* ── Outer card shell ────────────────────────────────────── */
+/* Figma: padding=VariableID:1:7 all sides, radius=VariableID:1:7,
+   border=1px solid VariableID:38:50                           */
+.card {
+  display: flex;
+  gap: var(--spacing-card);
+  padding: var(--spacing-card);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-card-stroke);
+  background-color: transparent;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Figma variant "Stroke": fills = VariableID:0a801a1a…/5613:370 (white) */
+.card--stroke {
+  background-color: var(--color-card-bg);
+}
+
+/* ── Direction modifiers ─────────────────────────────────── */
+/* Figma Direction=Horizontal: HORIZONTAL layout, align items to start (top) */
+.card--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Figma Direction=Vertical: VERTICAL layout */
+.card--vertical {
+  flex-direction: column;
+}
+
+/* ── Asset area: Icon variant ────────────────────────────── */
+/* Figma: Info frame 32×32, no fills, FIXED/FIXED,
+   contains VECTOR icon (26.67×26.67) using VariableID:8686058b…/5613:412 */
+.card__icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-card-icon-container);
+  height: var(--size-card-icon-container);
+  flex-shrink: 0;
+  color: var(--color-card-icon);
+}
+
+/* ── Asset area: Image variant ───────────────────────────── */
+/* Figma: Image frame 160×160, clipsContent=true,
+   fill=VariableID:c39ca5ae…/4317:846 (#e3e3e3) + IMAGE fill  */
+.card__image-container {
+  width: var(--size-card-image);
+  height: var(--size-card-image);
+  flex-shrink: 0;
+  overflow: hidden;
+  background-color: var(--color-card-image-placeholder);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* SVG placeholder shown when no imageSrc is provided */
+.card__image-placeholder-icon {
+  color: rgba(0, 0, 0, 0.25);
+  width: 48px;
+  height: 48px;
+}
+
+/* ── Body column ─────────────────────────────────────────── */
+/* Figma: VERTICAL layout, gap=VariableID:1:7, layoutGrow=1 (FILL) */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-card);
+  flex: 1 1 0;
+  min-width: 0;
+  align-items: flex-start;
+}
+
+/* ── Text block (heading + body text) ───────────────────── */
+/* Figma: VERTICAL layout, gap=VariableID:1d726f3f…/564:255 (8px),
+   layoutSizingHorizontal=FILL                                 */
+.card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-card-text-gap);
+  width: 100%;
+}
+
+/* ── Heading ─────────────────────────────────────────────── */
+/* Figma: Inter 24px/600, lh=28.8px, ls=-0.48px,
+   fills=VariableID:36:53, layoutSizingH=FILL                  */
+.card__heading {
+  margin: 0;
+  font-family: var(--font-family-card);
+  font-size: var(--font-size-card-heading);
+  font-weight: var(--font-weight-card-heading);
+  line-height: var(--line-height-card-heading);
+  letter-spacing: var(--letter-spacing-card-heading);
+  color: var(--color-list-text);
+  text-align: left;
+}
+
+/* ── Body text ───────────────────────────────────────────── */
+/* Figma: Inter 16px/400 (fontSize=VariableID:1:7), lh=22.4px,
+   fills=VariableID:36:53, layoutSizingH=FILL                  */
+.card__body-text {
+  margin: 0;
+  font-family: var(--font-family-card);
+  font-size: var(--font-size-card-body);
+  font-weight: var(--font-weight-card-body);
+  line-height: var(--line-height-card-body);
+  color: var(--color-list-text);
+  text-align: left;
+}

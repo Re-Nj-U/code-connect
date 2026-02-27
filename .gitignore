@@ -1,4 +1,4 @@
-# Logs
+# ── Logs ──────────────────────────────────────────────────
 logs
 *.log
 npm-debug.log*
@@ -7,16 +7,37 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# ── Dependencies ──────────────────────────────────────────
 node_modules
+
+# ── Build outputs ─────────────────────────────────────────
 dist
 dist-ssr
+*.tsbuildinfo
+
+# ── Environment / Secrets ─────────────────────────────────
+# Contains API keys (e.g. FIGMA_ACCESS_TOKEN) — never commit
+.env
+.env.*
+!.env.example
+
+# ── Vite cache ────────────────────────────────────────────
+.vite/
 *.local
 
-# Editor directories and files
+# ── Test coverage ─────────────────────────────────────────
+coverage
+
+# ── Editor directories ────────────────────────────────────
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# ── OS files ──────────────────────────────────────────────
 .DS_Store
+Thumbs.db
+
+# ── Misc ──────────────────────────────────────────────────
 *.suo
 *.ntvs*
 *.njsproj

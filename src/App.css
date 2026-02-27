@@ -1,42 +1,36 @@
+/* ==========================================================
+   App shell — scoped to the "Test app" screen (Figma node 46:68)
+   ========================================================== */
+
+/* Reset #root to a clean mobile-width container */
 #root {
-  max-width: 1280px;
+  max-width: 393px;   /* Figma frame width */
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0;
+  text-align: left;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ── Page shell ──────────────────────────────────────────── */
+/* Figma: VERTICAL layout
+   fills = VariableID:1:6 (#2da132 = --color-btn-secondary)
+   paddingLeft/Right = VariableID:1:7 (--scale-base = 16px)
+   paddingTop/Bottom = VariableID:46:126 (--spacing-screen = 32px)
+   itemSpacing      = VariableID:46:126 (--spacing-screen = 32px)  */
+.test-app {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-screen);
+  padding: var(--spacing-screen) var(--scale-base);
+  background-color: var(--color-btn-secondary);   /* VariableID:1:6 */
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* ── List container ──────────────────────────────────────── */
+/* Figma: VERTICAL layout, itemSpacing = VariableID:1:7 (16px) */
+.test-app__list-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-list-body);   /* VariableID:1:7 = 16px */
 }

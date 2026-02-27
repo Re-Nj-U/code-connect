@@ -1,0 +1,119 @@
+/* ==========================================================
+   List Card  (Figma node 36:142 — COMPONENT_SET "List Card")
+   All values reference centralized design tokens only.
+   ========================================================== */
+
+/* ── Outer card shell ────────────────────────────────────── */
+/* Figma: VERTICAL layout, paddingLeft/Right = VariableID:1:7,
+   cornerRadius = VariableID:1:7, fills = VariableID:1:8       */
+.list-card {
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--spacing-list-card-x);
+  padding-right: var(--spacing-list-card-x);
+  border-radius: var(--radius-list-card);
+  background-color: var(--color-list-card-default);
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Figma variant: Dissabled=Variant2 — fills = VariableID:38:50 */
+.list-card--disabled {
+  background-color: var(--color-list-card-disabled);
+}
+
+/* ── Body row ────────────────────────────────────────────── */
+/* Figma: HORIZONTAL layout, paddingTop/Bottom = VariableID:1:7,
+   itemSpacing = VariableID:1:7, counterAxisAlignItems = CENTER,
+   layoutSizingHorizontal = FILL                                */
+.list-card__body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: var(--spacing-list-body);
+  padding-bottom: var(--spacing-list-body);
+  gap: var(--spacing-list-body);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Left icon slot ──────────────────────────────────────── */
+/* Figma: HORIZONTAL layout, 18×18, cornerRadius:100,
+   counterAxisAlignItems/primaryAxisAlignItems = CENTER,
+   layoutSizingHorizontal/Vertical = HUG                       */
+.list-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-list-icon);
+  height: var(--size-list-icon);
+  border-radius: 100px;
+  flex-shrink: 0;
+  color: var(--color-list-icon);
+  font-size: var(--font-size-list-icon);
+  line-height: 1;
+}
+
+/* Exact SVG export of the Font Awesome 6 Pro "Family" glyph (Figma node 36:138).
+   Sized to match Figma's icon font-size (20px); color inherited via currentColor.
+   Pass iconNode to replace with your icon library. */
+.list-card__icon-placeholder {
+  display: block;
+  width: var(--font-size-list-icon);   /* 20px — matches Figma fontSize:20 */
+  height: var(--font-size-list-icon);
+  flex-shrink: 0;
+}
+
+/* ── Content area ────────────────────────────────────────── */
+/* Figma: VERTICAL layout, itemSpacing = VariableID:783b80…/6740:0,
+   layoutGrow = 1 (FILL), layoutSizingVertical = HUG            */
+.list-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-list-content-gap);
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* ── Title text ──────────────────────────────────────────── */
+/* Figma: Inter, 12px, 400 weight, intrinsic line-height,
+   letterSpacing:0, fills = VariableID:36:53, layoutSizingH=FILL */
+.list-card__title {
+  font-family: var(--font-family-list);
+  font-size: var(--font-size-list-title);
+  font-weight: var(--font-weight-list-title);
+  line-height: var(--line-height-list-title);
+  letter-spacing: var(--letter-spacing-list-title);
+  color: var(--color-list-text);
+  margin: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Right navigation / chevron slot ────────────────────── */
+/* Figma: VERTICAL layout, 18px wide, FIXED/HUG, centered,
+   icon fills = VariableID:36:53 (list-text)                   */
+.list-card__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-list-icon);
+  flex-shrink: 0;
+  color: var(--color-list-text);
+  font-size: var(--font-size-list-icon);
+  line-height: 1;
+}
+
+/* CSS-only chevron placeholder (no icon-library dependency) */
+.list-card__chevron-placeholder {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--color-list-text);
+  border-top: 1.5px solid var(--color-list-text);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
